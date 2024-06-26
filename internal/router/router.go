@@ -1,29 +1,20 @@
 package router
 
 import (
-	"github.com/sanjayheaven/ggb/internal/middlewares"
-
 	"github.com/gin-gonic/gin"
+	"github.com/sanjayheaven/ggb/internal/controllers"
 )
 
-var Router *gin.Engine
+func SetupRouter() *gin.Engine {
+	r := gin.Default()
 
-func Init() {
-	Router = gin.Default()
+	SetupTeamRoutes(r)
 
-	// Global middlewares
-	Router.Use(middlewares.ErrorHandle())
-	Router.Use(middlewares.Cors())
-
-	// public routes, no auth required
-	LoadPublicRoutes(Router)
-
-	// user routes
-	LoadUserRoutes(Router)
-
-	// example routes
-	LoadExampleRoutes(Router)
-
-	// init swagger
-	// Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	return r
+}
+func SetupTeamRoutes(r *gin.Engine) {
+	teamRoutes := r.Group("/team")
+	{
+		teamRoutes.POST("/create", controllers.CreateTeam)
+	}
 }
