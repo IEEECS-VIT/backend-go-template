@@ -27,6 +27,8 @@ func CreateTeam(c *gin.Context) {
         TeamMembers: []string{req.TeamLeader},
         TeamLength:  1,
         TeamCode:    models.GenerateTeamCode(),
+		CreatedAt:   models.ISTTime(),
+		UpdatedAt:   models.ISTTime(),
     }
 
 	ctx := context.Background()
