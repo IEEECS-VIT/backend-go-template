@@ -58,4 +58,17 @@ func CreateTeam(c *gin.Context) {
         "message":  "Team created successfully",
         "teamCode": team.TeamCode,
     })
+
+	/*
+	Test Using This
+	
+	curl -X POST http://localhost:8080/team/create \
+     -H "Content-Type: application/json" \
+     -d '{
+           "teamName": "Team Alpha",
+           "teamLeader": "leader@example.com"
+         }'
+
+	
+	*/
 }
