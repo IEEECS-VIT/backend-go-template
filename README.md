@@ -1,4 +1,4 @@
-# ARCS 24'  Backend (Go + Gin)
+# Backend Template (Go + Gin)
 
 1. Install GoLang for your OS
 2. Clone this repository
